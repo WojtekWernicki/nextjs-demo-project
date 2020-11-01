@@ -1,11 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import '../styles/globals.css';
+import Nav from '../src/components/Nav';
+
 import '../styles/tailwind.css';
 
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />;
+  return (
+    <div>
+      <Nav />
+      <Component {...pageProps} />
+    </div>
+  );
 }
 
 MyApp.propTypes = {
