@@ -3,12 +3,12 @@ module.exports = {
     // removeDeprecatedGapUtilities: true,
     // purgeLayersByDefault: true,
   },
-  purge: [],
+  purge: false,
   theme: {
     extend: {},
   },
   variants: {},
   plugins: [
-    require('@tailwindcss/ui')
+    '@tailwindcss/ui'
   ],
 };
