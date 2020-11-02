@@ -3,8 +3,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
 
-import server from '../../config/server';
-
 function Blog({ posts, locale }) {
   return (
     <div className="container mx-auto p-3">
@@ -41,7 +39,7 @@ Blog.propTypes = {
 };
 
 export async function getStaticProps({ locale }) {
-  const res = await fetch(`${server}/api/posts`);
+  const res = await fetch(`${process.env.API_PATH}/api/posts`);
   const posts = await res.json();
 
   return {
