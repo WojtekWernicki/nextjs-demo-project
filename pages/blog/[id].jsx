@@ -2,6 +2,8 @@ import React from 'react';
 import Image from 'next/image';
 import PropTypes from 'prop-types';
 
+import server from '../../config/server';
+
 function Blog({ post }) {
   return (
     <div className="container flex flex-col mx-auto p-3">
@@ -27,7 +29,7 @@ Blog.propTypes = {
 };
 
 export async function getStaticPaths({ locales }) {
-  const res = await fetch('/api/posts');
+  const res = await fetch(`${server}/api/posts`);
   const posts = await res.json();
 
   const ids = posts.map((post) => post._id);
@@ -44,7 +46,7 @@ export async function getStaticPaths({ locales }) {
 }
 
 export async function getStaticProps({ params, locale }) {
-  const res = await fetch(`/api/posts/${params.id}`);
+  const res = await fetch(`${server}/api/posts/${params.id}`);
   const post = await res.json();
 
   return {
