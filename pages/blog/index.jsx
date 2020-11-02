@@ -39,7 +39,7 @@ Blog.propTypes = {
 };
 
 export async function getStaticProps({ locale }) {
-  const res = await fetch('http://localhost:3000/api/posts');
+  const res = await fetch('/api/posts');
   const posts = await res.json();
 
   return {

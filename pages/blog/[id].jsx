@@ -27,7 +27,7 @@ Blog.propTypes = {
 };
 
 export async function getStaticPaths({ locales }) {
-  const res = await fetch('http://localhost:3000/api/posts');
+  const res = await fetch('/api/posts');
   const posts = await res.json();
 
   const ids = posts.map((post) => post._id);
@@ -44,7 +44,7 @@ export async function getStaticPaths({ locales }) {
 }
 
 export async function getStaticProps({ params, locale }) {
-  const res = await fetch(`http://localhost:3000/api/posts/${params.id}`);
+  const res = await fetch(`/api/posts/${params.id}`);
   const post = await res.json();
 
   return {
