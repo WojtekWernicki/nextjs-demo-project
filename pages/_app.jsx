@@ -6,9 +6,11 @@ import Nav from '../src/components/Nav';
 import '../styles/tailwind.css';
 
 function MyApp({ Component, pageProps }) {
+  const { locale } = pageProps;
+
   return (
     <div>
-      <Nav />
+      <Nav locale={locale} />
       <Component {...pageProps} />
     </div>
   );
