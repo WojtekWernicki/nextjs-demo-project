@@ -1,10 +1,20 @@
 {
-  "title": {
-    "pl": "Next.js – projekt demo | Strona główna",
-    "en-US": "Next.js Demo Project | Home"
+  "en-US": {
+    "headTitle": "Next.js Demo Project | Home",
+    "title": "Next.js — demo app",
+    "subheader": "Fullstack framework for web applications",
+    "featureI18N": "Language routing",
+    "featureRendering": "SSG & SSR",
+    "featureCodeSpeed": "Code splitting & bundling",
+    "featureSEO": "SEO friendly"
   },
-  "changeLang": {
-    "pl": "Open English version",
-    "en-US": "Otwórz polską wersję"
+  "pl": {
+    "headTitle": "Next.js – projekt demo | Strona główna",
+    "title": "Next.js — aplikacja demonstracyjna",
+    "subheader": "Fullstackowy framework dla aplikacji internetowych",
+    "featureI18N": "Routing dla języków",
+    "featureRendering": "SSG i SSR",
+    "featureCodeSpeed": "Dzielenie kodu i bundlowanie",
+    "featureSEO": "Przyjazne dla SEO"
   }
 }
