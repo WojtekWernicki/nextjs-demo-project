@@ -1,11 +1,14 @@
 import React, { useState, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 import i18nFile from '../../i18n/nav.json';
 
 function Lang({ locale }) {
   const [isOpen, setIsOpen] = useState(false);
+
+  const router = useRouter();
 
   const handleLangOpen = useCallback(() => { setIsOpen(!isOpen); }, [isOpen]);
 
@@ -31,7 +34,13 @@ function Lang({ locale }) {
       <div className={`origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg ${isOpen ? 'block' : 'hidden'}`}>
         <div className="rounded-md bg-white shadow-xs">
           <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
-            <Link href="/" locale="en-US">
+            <Link
+              href={{
+                pathname: router.pathname,
+                query: router.query
+              }}
+              locale="en-US"
+            >
               <a
                 className="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"
                 role="menuitem"
@@ -40,7 +49,13 @@ function Lang({ locale }) {
                 English
               </a>
             </Link>
-            <Link href="/" locale="pl">
+            <Link
+              href={{
+                pathname: router.pathname,
+                query: router.query
+              }}
+              locale="pl"
+            >
               <a
                 className="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"
                 role="menuitem"
