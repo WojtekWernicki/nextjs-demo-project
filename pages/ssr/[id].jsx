@@ -7,7 +7,7 @@ function Blog({ post, locale }) {
   return (
     <>
       <Head>
-        <title>{post.title}</title>
+        <title>SSR | {post.title}</title>
         <link rel="icon" href="/favicon.ico" />
         <link rel="alternate" hrefLang={locale} />
       </Head>
@@ -35,24 +35,7 @@ Blog.propTypes = {
   locale: PropTypes.string.isRequired
 };
 
-export async function getStaticPaths({ locales }) {
-  const res = await fetch(`${process.env.API_PATH}/api/posts`);
-  const posts = await res.json();
-
-  const ids = posts.map((post) => post._id);
-
-  const paths = locales.reduce((acc, locale) => [
-    ...acc,
-    ...ids.map(((id) => ({
-      params: { id },
-      locale
-    })))
-  ], []);
-
-  return { paths, fallback: false };
-}
-
-export async function getStaticProps({ params, locale }) {
+export async function getServerSideProps({ params, locale }) {
   const res = await fetch(`${process.env.API_PATH}/api/posts/${params.id}`);
   const post = await res.json();
 

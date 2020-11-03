@@ -12,6 +12,7 @@ function Nav({ locale }) {
           <a>WIEWIÓR DEV</a>
         </Link>
         <div>
+          <Link href="/ssr"><a className="mr-10">SSR BLOG</a></Link>
           <Link href="/blog"><a className="mr-10">BLOG</a></Link>
           <Lang locale={locale} />
         </div>
